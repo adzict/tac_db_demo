@@ -27,20 +27,11 @@ def search_by_education_year(data, year):
     result = data[data['Current Ed Year'] == year]
     return result
 
-# Visualizations
-def visualize(data, visualization):
-    if visualization == "Gender Balance":
-        gender_counts = data['Sex'].value_counts()
-        st.bar_chart(gender_counts)
-    elif visualization == "Number of People in Each Year of Study":
-        year_counts = data['Current Ed Year'].value_counts().sort_index()
-        st.bar_chart(year_counts)
-    elif visualization == "Mean and Median Age":
-        st.write("Mean age:", data['Date of Birth'].mean())
-        st.write("Median age:", data['Date of Birth'].median())
-    elif visualization == "Mean and Median Age per Education Year":
-        age_per_year = data.groupby('Current Ed Year')['Date of Birth'].agg(['mean', 'median'])
-        st.bar_chart(age_per_year)
+# Display profile in bullet points
+def display_profile(profile):
+    st.write("Profile:")
+    for key, value in profile.items():
+        st.write(f"- {key}: {value}")
 
 def main():
     st.title("Explore Student Data")
@@ -57,7 +48,11 @@ def main():
         name = st.sidebar.text_input("Enter name:")
         if st.sidebar.button("Search"):
             result = search_by_name(data, name)
-            st.write(result)
+            if not result.empty:
+                profile = result.iloc[0].to_dict()
+                display_profile(profile)
+            else:
+                st.write("No results found.")
     elif search_option == "Search by City":
         city = st.sidebar.text_input("Enter city:")
         if st.sidebar.button("Search"):
@@ -75,8 +70,14 @@ def main():
 
     # Visualization options
     st.sidebar.subheader("Visualization Options")
-    visualization = st.sidebar.selectbox("Choose visualization:", ("Gender Balance", "Number of People in Each Year of Study", "Mean and Median Age", "Mean and Median Age per Education Year"))
-    visualize(data, visualization)
+    visualization = st.sidebar.selectbox("Choose visualization:", ("Gender Balance", "Number of People in Each Year of Study"))
+    if st.sidebar.button("Show Visualization"):
+        if visualization == "Gender Balance":
+            gender_counts = data['Sex'].value_counts()
+            st.bar_chart(gender_counts)
+        elif visualization == "Number of People in Each Year of Study":
+            year_counts = data['Current Ed Year'].value_counts().sort_index()
+            st.bar_chart(year_counts)
 
 if __name__ == "__main__":
     main()
