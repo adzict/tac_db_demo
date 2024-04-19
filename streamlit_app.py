@@ -26,6 +26,22 @@ def display_profile(profile):
         st.write(f"- {key}: {value}")
 
 def main():
+
+    # Custom CSS styles
+    st.markdown(
+        """
+        <style>
+        body {
+            font-family: Verdana, sans-serif;
+            background-color: #c8f7d5; /* Lighter version of #7dcea0 */
+            color: black; /* Change text color to black for better contrast */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # Page options
     st.set_page_config(page_title="TA Centar Demo", page_icon=":mortar_board:", layout="wide")
 
     st.title("TA Centar Baza Podataka Studenata Demo")
