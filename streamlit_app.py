@@ -17,16 +17,6 @@ def search_by_city(data, city):
     result = data[data['City'] == city]
     return result
 
-# Search by supervisor
-def search_by_supervisor(data, supervisor):
-    # Assuming supervisor information is not included in the CSV file
-    st.write("Supervisor information is not available in the dataset.")
-
-# Search by education year
-def search_by_education_year(data, year):
-    result = data[data['Current Ed Year'] == year]
-    return result
-
 # Display profile in bullet points
 def display_profile(profile):
     st.write("Profile:")
@@ -34,7 +24,7 @@ def display_profile(profile):
         st.write(f"- {key}: {value}")
 
 def main():
-    st.title("TA Center Student Database")
+    st.title("Explore Student Data")
 
     # Load data
     data_load_state = st.text("Loading data...")
@@ -42,7 +32,7 @@ def main():
     data_load_state.text("Data loaded successfully!")
 
     # Sidebar options
-    st.sidebar.subheader("Search Options")
+    st.sidebar.subheader("SEARCH")
     search_option = st.sidebar.selectbox("Choose search option:", ("Search by Name", "Search by City", "Search by Supervisor", "Search by Education Year"))
     if search_option == "Search by Name":
         name = st.sidebar.text_input("Enter name:")
@@ -54,22 +44,17 @@ def main():
             else:
                 st.write("No results found.")
     elif search_option == "Search by City":
-        city = st.sidebar.text_input("Enter city:")
-        if st.sidebar.button("Search"):
-            result = search_by_city(data, city)
-            st.write(result)
+        st.write("This option is currently not available due to the application being a demo version. Thank you for your understanding.")
     elif search_option == "Search by Supervisor":
-        supervisor = st.sidebar.text_input("Enter supervisor:")
-        if st.sidebar.button("Search"):
-            search_by_supervisor(data, supervisor)
+        st.write("This option is currently not available due to the application being a demo version. Thank you for your understanding.")
     elif search_option == "Search by Education Year":
         year = st.sidebar.selectbox("Choose education year:", sorted(data['Current Ed Year'].unique()))
         if st.sidebar.button("Search"):
-            result = search_by_education_year(data, year)
+            result = data[data['Current Ed Year'] == year]
             st.write(result)
 
     # Visualization options
-    st.sidebar.subheader("Visualization Options")
+    st.sidebar.subheader("Show me interesting visualizations!")
     visualization = st.sidebar.selectbox("Choose visualization:", ("Gender Balance", "Number of People in Each Year of Study"))
     if st.sidebar.button("Show Visualization"):
         if visualization == "Gender Balance":
