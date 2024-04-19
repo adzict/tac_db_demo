@@ -67,7 +67,8 @@ def main():
                 """)
     
     st.write("---")
-    st.subheader("Pretraži bazu:E")
+    st.subheader("Pretraži bazu:")
+
     with st.expander("Opcije pretrage:"):
         search_option = st.selectbox("Izaberite opciju:", ("Search by Name", "Search by City", "Search by Education Year"))
         if search_option == "Search by Name":
