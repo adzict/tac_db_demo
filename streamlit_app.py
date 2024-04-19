@@ -9,6 +9,8 @@ def load_data():
 
 # Search by name
 def search_by_name(data, name):
+    # Convert input name to title case
+    name = name.title()
     result = data[(data['First Name'] == name) | (data['Last Name'] == name)]
     return result
 
