@@ -25,12 +25,27 @@ def display_profile(profile):
 
 def main():
     st.title("TA Center Student Database Demo")
-    st.text("Version 0.1")
+    st.subheader("Version 0.1")
+
+    st.write("---")
 
     # Load data
     data_load_state = st.text("Loading data...")
     data = load_data()
     data_load_state.text("Data loaded successfully!")
+
+    st.write("---")
+
+    st.markdown("""
+                    ###How do I use this Demo?
+                
+                    NOTE: all data in this application is fake and serves only for demonstration purposes.
+
+                    - You can search by a name, for example: John and click search. The entire profile will appear.
+                    - You can search by the year of education, and the list of all students in that year will show.
+                    - You can also check out interesting visualizations for demo purposes.
+                    - 
+                """)
 
     # Sidebar options
     st.sidebar.subheader("SEARCH")
