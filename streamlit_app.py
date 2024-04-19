@@ -49,7 +49,7 @@ def main():
                 """)
     
     st.write("---")
-
+    st.subheader("SEARCH THE DATABASE")
     with st.expander("Search Options"):
         search_option = st.selectbox("Choose search option:", ("Search by Name", "Search by City", "Search by Education Year"))
         if search_option == "Search by Name":
@@ -69,6 +69,8 @@ def main():
                 result = data[data['Current Ed Year'] == year]
                 st.write(result)
 
+    st.write("---")
+    st.subheader("SHOW ME INTERESTING VISUALIZATIONS!")
     with st.expander("Visualization Options"):
         visualization = st.selectbox("Choose visualization:", ("Gender Balance", "Number of People in Each Year of Study"))
         if st.button("Show Visualization"):
