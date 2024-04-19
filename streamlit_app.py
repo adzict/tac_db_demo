@@ -89,15 +89,16 @@ def main():
 
     st.write("---")
     st.subheader("Pokaži mi neke zanimljive grafikone!!")
+
     with st.expander("Visualization Options"):
-        visualization = st.selectbox("Choose visualization:", ("Gender Balance", "Number of People in Each Year of Study"))
-        if st.button("Show Visualization"):
-            if visualization == "Gender Balance":
-                gender_counts = data['Sex'].value_counts()
-                st.pie_chart(gender_counts)
-            elif visualization == "Number of People in Each Year of Study":
-                year_counts = data['Current Ed Year'].value_counts().sort_index()
-                st.bar_chart(year_counts)
+    visualization = st.selectbox("Choose visualization:", ("Gender Balance", "Number of People in Each Year of Study"))
+    if st.button("Show Visualization"):
+        if visualization == "Gender Balance":
+            gender_counts = data['Sex'].value_counts()
+            st.pie_chart(gender_counts)
+        elif visualization == "Number of People in Each Year of Study":
+            year_counts = data['Current Ed Year'].value_counts().sort_index()
+            st.bar_chart(year_counts)
 
 if __name__ == "__main__":
     main()
