@@ -44,7 +44,6 @@ def main():
                     - You can search by a name, for example: John and click search. The entire profile will appear.
                     - You can search by the year of education, and the list of all students in that year will show.
                     - You can also check out interesting visualizations for demo purposes.
-                    - 
                 """)
 
     # Sidebar options
