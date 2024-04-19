@@ -10,7 +10,7 @@ The primary purpose of this demo application is to showcase the functionality of
 
 ## Technologies Used
 - Python
-- SQL
+- Streamlit
 
 ## Deployment
 The deployment method for this demo application is yet to be finalized. Options under consideration include Streamlit and Heroku. Further decisions regarding deployment will be updated accordingly.
