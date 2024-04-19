@@ -26,34 +26,50 @@ def display_profile(profile):
         st.write(f"- {key}: {value}")
 
 def main():
-    st.set_page_config(page_title="TA Center Demo", page_icon=":mortar_board:", layout="wide")
+    st.set_page_config(page_title="TA Centar Demo", page_icon=":mortar_board:", layout="wide")
 
-    st.title("TA Center Student Database Demo")
-    st.subheader("Version 0.1")
+    st.title("TA Centar Baza Podataka Studenata Demo")
+    st.subheader("Verzija 0.1")
 
     st.write("---")
 
     # Load data
     data_load_state = st.text("Loading data...")
     data = load_data()
-    data_load_state.text("Data loaded successfully!")
+    data_load_state.text("Uspešno očitani podaci!")
 
     st.write("---")
 
     st.markdown("""
-                    ### How do I use this Demo?
+                    ### Šta je ovaj Demo?
                 
-                    NOTE: all data in this application is fake and serves only for demonstration purposes.
+                    Ovaj Demo je namenjen za TA Centar kao pokazna aplikacija o mogućnostima manipulisanja podacima na optimalniji način.
+                    Ovo je prva pokazna verzija aplikacije, koja za cilj ima demonstraciju dostupnih opcija. Lista opcija je u ovom momentu neograničena i zavisi od iskustva korisnika.
 
-                    - You can search by a name, for example: John and click search. The entire profile will appear.
-                    - You can search by the year of education, and the list of all students in that year will show.
-                    - You can also check out interesting visualizations for demo purposes.
+                    ### Odakle podaci?
+                
+                    Podaci koje ovaj Demo koristi nisu stvarni, i svako podudaranje sa stvarnošću je slučajno. Modul korišćen za kreiranje dummy podataka je Faker, i s obzirom na njegove limite u pogledu zemalja koje obuhvata, ova aplikacija sadrži podatke koji su medijalno karaktera Sjedinjenih Američkih Država. Većina podataka je stvorena koristeći sintagme i veštačku inteligenciju.
+
+                    ### Kako se koristi ovaj Demo?
+                
+                    Demo trenutno raspolaže sa dve opcije: Pretraga baze i Prikaz zanimljivih grafikona.
+
+                    #### Pretraga baze
+                    - omogućena je pretraga po imenu, odnosno prezimenu (ne i zajedno). Zbog prirode podataka preporučujem da koristite neka česta američka imena, kao što su: John, Jennifer, Spears, William, David, Kim, Brenda...
+                    - nije neophodno koristiti velika slova, program je podešen da očita šta god upišete dok god se poklapa sa podatkom iz baze.
+                    - moguća je pretraga po godini edukacije, gde je dovoljno samo da izaberete godinu i prikazaće vam se kompletan spisak studenata.
+                    - možete da uvećate spisak sa ikonicom kvadrata u gornje desnom uglu.
+                    - nakon što ukucate ime ili izaberete godinu, kliknite Search.
+                    - napomena: neka polja su još uvek na engleskom.
+                    
+                    #### Prikaz zanimljivih vizualizacija
+                    - za sada postoje dve opcije: pol i broj studenata po godinama. Grafički prikazi su mogući u svim oblicima, ovo su prikazi radi demonstracije.
                 """)
     
     st.write("---")
-    st.subheader("SEARCH THE DATABASE")
-    with st.expander("Search Options"):
-        search_option = st.selectbox("Choose search option:", ("Search by Name", "Search by City", "Search by Education Year"))
+    st.subheader("Pretraži bazu:E")
+    with st.expander("Opcije pretrage:"):
+        search_option = st.selectbox("Izaberite opciju:", ("Search by Name", "Search by City", "Search by Education Year"))
         if search_option == "Search by Name":
             name = st.text_input("Enter name:")
             if st.button("Search"):
@@ -72,13 +88,13 @@ def main():
                 st.write(result)
 
     st.write("---")
-    st.subheader("SHOW ME INTERESTING VISUALIZATIONS!")
+    st.subheader("Pokaži mi neke zanimljive grafikone!!")
     with st.expander("Visualization Options"):
         visualization = st.selectbox("Choose visualization:", ("Gender Balance", "Number of People in Each Year of Study"))
         if st.button("Show Visualization"):
             if visualization == "Gender Balance":
                 gender_counts = data['Sex'].value_counts()
-                st.bar_chart(gender_counts)
+                st.pie_chart(gender_counts)
             elif visualization == "Number of People in Each Year of Study":
                 year_counts = data['Current Ed Year'].value_counts().sort_index()
                 st.bar_chart(year_counts)
