@@ -29,20 +29,6 @@ def main():
     # Page options
     st.set_page_config(page_title="TA Centar Demo", page_icon=":mortar_board:", layout="wide")
 
-    # Custom CSS styles
-    st.markdown(
-        """
-        <style>
-        body {
-            font-family: Verdana, sans-serif;
-            background-color: #f0f9f4; /* Lighter version of #7dcea0 */
-            color: black; /* Change text color to black for better contrast */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
     st.title("TA Centar Baza Podataka Studenata Demo")
     st.subheader("Verzija 0.1")
 
