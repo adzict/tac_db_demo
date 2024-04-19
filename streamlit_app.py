@@ -31,6 +31,8 @@ def main():
     st.title("TA Center Student Database Demo")
     st.subheader("Version 0.1")
 
+    st.image("university_logo.png", use_column_width=True)
+    
     st.write("---")
 
     # Load data
