@@ -45,6 +45,8 @@ def main():
                     - You can search by the year of education, and the list of all students in that year will show.
                     - You can also check out interesting visualizations for demo purposes.
                 """)
+    
+    st.write("---")
 
     # Sidebar options
     st.sidebar.subheader("SEARCH")
