@@ -37,7 +37,7 @@ def main():
     st.write("---")
 
     st.markdown("""
-                    ###How do I use this Demo?
+                    ### How do I use this Demo?
                 
                     NOTE: all data in this application is fake and serves only for demonstration purposes.
 
