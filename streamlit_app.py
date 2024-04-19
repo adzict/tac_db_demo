@@ -35,7 +35,7 @@ def main():
         <style>
         body {
             font-family: Verdana, sans-serif;
-            background-color: #f0f9f4; /* Lighter version of #7dcea0 */
+            background-color: #7dcea0; /* Lighter version of #7dcea0 */
             color: black; /* Change text color to black for better contrast */
         }
         </style>
