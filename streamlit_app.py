@@ -24,7 +24,8 @@ def display_profile(profile):
         st.write(f"- {key}: {value}")
 
 def main():
-    st.title("Explore Student Data")
+    st.title("TA Center Student Database Demo")
+    st.text("Version 0.1")
 
     # Load data
     data_load_state = st.text("Loading data...")
