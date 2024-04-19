@@ -26,6 +26,8 @@ def display_profile(profile):
         st.write(f"- {key}: {value}")
 
 def main():
+    # Page options
+    st.set_page_config(page_title="TA Centar Demo", page_icon=":mortar_board:", layout="wide")
 
     # Custom CSS styles
     st.markdown(
@@ -40,9 +42,6 @@ def main():
         """,
         unsafe_allow_html=True
     )
-
-    # Page options
-    st.set_page_config(page_title="TA Centar Demo", page_icon=":mortar_board:", layout="wide")
 
     st.title("TA Centar Baza Podataka Studenata Demo")
     st.subheader("Verzija 0.1")
