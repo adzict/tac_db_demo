@@ -89,7 +89,7 @@ def main():
                 st.write(result)
 
     st.write("---")
-    st.subheader("Pokaži mi neke zanimljive grafikone!!")
+    st.subheader("Pokaži mi neke zanimljive grafikone!")
 
     with st.expander("Visualization Options"):
         visualization = st.selectbox("Choose visualization:", ("Gender Balance", "Number of People in Each Year of Study"))
