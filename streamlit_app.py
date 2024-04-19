@@ -26,6 +26,8 @@ def display_profile(profile):
         st.write(f"- {key}: {value}")
 
 def main():
+    st.set_page_config(page_title="TA Center Demo", page_icon=":mortar_board:", layout="wide")
+
     st.title("TA Center Student Database Demo")
     st.subheader("Version 0.1")
 
